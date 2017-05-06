@@ -16,6 +16,9 @@ public class ParkingLot {
 	
 	private static final char NEW_LINE= '\n';
 	private static final char TAB = '\t';
+	private static final String SLOT_NUM = "Slot No.";
+	private static final String REGISTERED_SLOT_NUM = "Registration Slot No.";
+	private static final String COLOUR = "Colour";
 
 	
 	public ParkingLot(int capacity) {
@@ -80,8 +83,26 @@ public class ParkingLot {
 	}
 	
 	public String getStatus(){
-
-		return null;
+		StringBuffer sb = new StringBuffer();
+		sb.append(NEW_LINE);
+		sb.append(NEW_LINE);
+		sb.append(SLOT_NUM);
+		sb.append(TAB);
+		sb.append(REGISTERED_SLOT_NUM);
+		sb.append(TAB);
+		sb.append(COLOUR);
+		sb.append(NEW_LINE);
+		for(int i = 1;i<capacity;i++){
+			if(ticketArray[i]!=null){
+				sb.append(ticketArray[i].getSlotNo());
+				sb.append(TAB);
+				sb.append(ticketArray[i].getVehicle().getRegistrationNumber());
+				sb.append(TAB);
+				sb.append(ticketArray[i].getVehicle().getColor());
+				sb.append(NEW_LINE);
+			}
+		}
+		return sb.toString();
 	}
 	
 	private int getNextEmptySlot(){
