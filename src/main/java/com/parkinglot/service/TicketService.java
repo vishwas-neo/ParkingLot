@@ -10,9 +10,9 @@ import com.parkinglot.entities.Vehicle;
 
 class TicketService {
 
-	Map<String,Ticket> regNumberTicketMap;
+	private Map<String,Ticket> regNumberTicketMap;
 	
-	Map<String,List<Ticket>> colorTicketsMap;
+	private Map<String,List<Ticket>> colorTicketsMap;
 	
 	public TicketService() {
 		regNumberTicketMap = new HashMap<>();
