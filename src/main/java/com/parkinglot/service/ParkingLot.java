@@ -1,5 +1,6 @@
 package com.parkinglot.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.parkinglot.entities.Ticket;
@@ -12,6 +13,10 @@ public class ParkingLot {
 	private Ticket[] ticketArray;
 	
 	private TicketService ticketService;
+	
+	private static final char NEW_LINE= '\n';
+	private static final char TAB = '\t';
+
 	
 	public ParkingLot(int capacity) {
 		super();
@@ -34,11 +39,12 @@ public class ParkingLot {
 	}
 	
 	public void leave(int slotNo){
-		if(slotNo<0 || slotNo > capacity){
+		if(slotNo<0 || slotNo > capacity || ticketArray[slotNo]==null){
 			return;
 		}
 		ticketService.destroyTicket(ticketArray[slotNo]);
 		ticketArray[slotNo] = null;
+		return;
 	}
 	
 	public Integer getSlotNumberByRegNumber(String regNumber){
@@ -50,15 +56,31 @@ public class ParkingLot {
 	}
 	
 	public List<Integer> getSlotNumbersByColor(String color){
-		return null;
+		List<Ticket> ticketList = ticketService.getTicketsByColor(color);
+		if(ticketList == null || ticketList.isEmpty()){
+			return null;
+		}
+		List<Integer> slotNumbers = new ArrayList<>();
+		for(Ticket ticket:ticketList){
+			slotNumbers.add(ticket.getSlotNo());
+		}
+		return slotNumbers;
 	}
 	
 	public List<String> getRegNumbersByColor(String color){
-		return null;
+		List<Ticket> ticketList = ticketService.getTicketsByColor(color);
+		if(ticketList == null || ticketList.isEmpty()){
+			return null;
+		}
+		List<String> colorNumbers = new ArrayList<>();
+		for(Ticket ticket:ticketList){
+			colorNumbers.add(ticket.getVehicle().getRegistrationNumber());
+		}
+		return colorNumbers;
 	}
 	
 	public String getStatus(){
-		
+
 		return null;
 	}
 	

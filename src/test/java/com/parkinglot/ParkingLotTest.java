@@ -47,13 +47,30 @@ public class ParkingLotTest {
 	}
 	
 	@Test
+	public void testGetSlotNumbersByColorInValid(){
+		Vehicle car = new Car("MH-04-AY-1111","Brown");
+		Ticket ticket = parkingLot.park(car);
+		List<Integer> slotNumberByColor = parkingLot.getSlotNumbersByColor("White");
+		Assert.assertEquals(null, slotNumberByColor);
+		parkingLot.leave(ticket.getSlotNo());
+	}
+	
+	@Test
 	public void testGetRegNumbersByColor(){
 		Vehicle car = new Car("MH-04-AY-1111","Brown");
 		Ticket ticket = parkingLot.park(car);
 		List<String> slotNumberByColor = parkingLot.getRegNumbersByColor("Brown");
-		Assert.assertEquals(true, slotNumberByColor.size()==1);
 		Assert.assertEquals(car.getRegistrationNumber(), slotNumberByColor.get(0));
 		parkingLot.leave(ticket.getSlotNo());
+	}
+	
+	@Test
+	public void testGetRegNumbersByColorInvalid(){
+		Vehicle car = new Car("MH-04-AY-1111","Brown");
+		Ticket ticket = parkingLot.park(car);
+		parkingLot.leave(ticket.getSlotNo());
+		List<String> slotNumberByColor = parkingLot.getRegNumbersByColor("Brown");
+		Assert.assertEquals(null, slotNumberByColor);
 	}
 	
 	@Test
@@ -70,6 +87,21 @@ public class ParkingLotTest {
 		parkingLot.leave(ticket1.getSlotNo());
 	}
 	
+	@Test
+	public void leaveInValidSlotNumber(){
+		parkingLot.leave(-1);
+		parkingLot.leave(3);
+	}
+	
+	@Test
+	public void testParkOneCarAgain(){
+		Vehicle car = new Car("MH-04-AY-1111","Brown");
+		Ticket ticket = parkingLot.park(car);
+		Ticket ticket1 = parkingLot.park(car);
+		Assert.assertEquals(ticket, ticket1);
+		parkingLot.leave(ticket.getSlotNo());
+		parkingLot.leave(ticket1.getSlotNo());
+	}
 	
 	@AfterTest
 	public void destroyParkingLot(){
