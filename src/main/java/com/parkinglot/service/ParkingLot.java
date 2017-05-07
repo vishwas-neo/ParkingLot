@@ -16,7 +16,7 @@ public class ParkingLot {
 	
 	private static final char NEW_LINE= '\n';
 	private static final char TAB = '\t';
-	private static final String SLOT_NUM = "Slot No.";
+	private static final String SLOT_NUM = "No";
 	private static final String REGISTERED_SLOT_NUM = "Registration Slot No.";
 	private static final String COLOUR = "Colour";
 

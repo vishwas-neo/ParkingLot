@@ -62,24 +62,27 @@ public class MainDriver {
 		case STATUS:
 			result = parkingLot.getStatus();
 			break;
-		default:
-			return "Invalid Instruction";
 		}
 
 		return result;
 	}
 
 	private boolean validateInstruction(String[] instructionArray) {
-		if (instructionArray[0].startsWith("create") && instructionArray.length != 3)
+		if(Instruction.getInstructionByName(instructionArray[0])==null){
 			return false;
-		else if (instructionArray[0].startsWith("status") && instructionArray.length != 1)
-			return false;
-		else {
-			if (instructionArray[0].length() != 2)
-				return false;
 		}
 		if (!instructionArray[0].startsWith("create") && parkingLot == null)
 			return false;
+		
+		if (instructionArray[0].startsWith("park") && instructionArray.length != 3)
+			return false;
+		
+		if (instructionArray[0].startsWith("status") && instructionArray.length != 1)
+			return false;
+		
+		if(!instructionArray[0].startsWith("park") && !instructionArray[0].startsWith("status") && instructionArray.length!=2)
+			return false;
+		
 		return true;
 	}
 

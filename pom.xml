@@ -60,7 +60,7 @@
 					<archive>
 						<manifest>
 							<!-- Jar file entry point -->
-							<mainClass>com.parkinglot.Main</mainClass>
+							<mainClass>com.parkinglot.driver.Main</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

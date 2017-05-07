@@ -108,8 +108,7 @@ public class ParkingLotTest {
 		Vehicle car = new Car("MH-04-AY-1111", "Brown");
 		Ticket ticket = parkingLot.park(car);
 		String st = parkingLot.getStatus();
-		System.out.println(st);
-		Assert.assertEquals(st, "\n\nSlot No.\tRegistration Slot No.\tColour\n" + ticket.getSlotNo() + "\t"
+		Assert.assertEquals(st, "\n\nNo\tRegistration Slot No.\tColour\n" + ticket.getSlotNo() + "\t"
 				+ car.getRegistrationNumber() + "\t" + car.getColor() + "\n");
 		parkingLot.leave(ticket.getSlotNo());
 	}
