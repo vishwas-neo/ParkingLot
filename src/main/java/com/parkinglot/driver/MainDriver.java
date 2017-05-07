@@ -22,8 +22,8 @@ public class MainDriver {
 		String result = null;
 		switch (instruction) {
 		case CREATE:
-			parkingLot = new ParkingLot(Integer.parseInt(instructionArray[1]));
-			result = "Created a parking lot with " + instructionArray[1] + " slots";
+			parkingLot = ParkingLot.getInstance(Integer.parseInt(instructionArray[1]));
+			result = "Created a parking lot with " + parkingLot.getCapacity() + " slots";
 			break;
 		case LEAVE:
 			parkingLot.leave(Integer.parseInt(instructionArray[1]));

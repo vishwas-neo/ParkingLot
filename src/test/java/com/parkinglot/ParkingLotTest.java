@@ -18,7 +18,7 @@ public class ParkingLotTest {
 
 	@BeforeTest
 	public void createParkingLot() {
-		parkingLot = new ParkingLot(2);
+		parkingLot = ParkingLot.getInstance(2);
 	}
 
 	@Test
