@@ -1,0 +1,13 @@
+#!/bin/sh
+mvn clean install &> /dev/null
+if [ -z $1 ]
+  then 
+echo " "
+echo " "
+echo "Build Complete. Running the ParkingLot in interactive way"
+echo " "
+echo " "
+java -jar target/ParkingLot.jar 
+else
+java -jar target/ParkingLot.jar $1
+fi

@@ -32,23 +32,23 @@ class TicketService {
 	}
 	
 	public List<Ticket> getTicketsByColor(String color){
-		return colorTicketsMap.get(color);
+		return colorTicketsMap.get(color.toLowerCase());
 	}
 	
 	public void destroyTicket(Ticket ticket){
 		regNumberTicketMap.remove(ticket.getVehicle().getRegistrationNumber());
-		colorTicketsMap.get(ticket.getVehicle().getColor()).remove(ticket);
+		colorTicketsMap.get(ticket.getVehicle().getColor().toLowerCase()).remove(ticket);
 	}
 	
 	private void updateColorTicketMap(Vehicle vehicle, Ticket ticket){
-		List<Ticket> colorTickets = colorTicketsMap.get(vehicle.getColor());
+		List<Ticket> colorTickets = colorTicketsMap.get(vehicle.getColor().toLowerCase());
 		if(colorTickets!=null){
 			colorTickets.add(ticket);
 		}
 		else{
 			colorTickets = new ArrayList<>();
 			colorTickets.add(ticket);
-			colorTicketsMap.put(vehicle.getColor(), colorTickets);
+			colorTicketsMap.put(vehicle.getColor().toLowerCase(), colorTickets);
 		}
 	}
 }

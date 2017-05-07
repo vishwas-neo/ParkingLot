@@ -17,12 +17,18 @@ public class Main {
 
 		MainDriver driver = new MainDriver();
 
-		init(args);
+		if(!init(args)){
+			System.out.println("File not found: "+args[0]);
+			return;
+		}
 
 		String line;
 
 		while ((line = getNextLine()) != null) {
-			System.out.println(driver.processLine(line));
+			line.trim();
+			if(!line.isEmpty()){
+				System.out.println(driver.processLine(line));
+			}
 		}
 
 		close();
@@ -54,17 +60,18 @@ public class Main {
 		}
 	}
 
-	public static void init(String[] args) {
+	public static boolean init(String[] args) {
 		if (args.length > 0) {
 			String inputFile = args[0];
 			try {
 				bReader = new BufferedReader(new FileReader(new File(inputFile)));
 			} catch (FileNotFoundException e) {
-				return;
+				return false;
 			}
 		} else {
 			isInteractive = true;
 			sc = new Scanner(System.in);
 		}
+		return true;
 	}
 }
