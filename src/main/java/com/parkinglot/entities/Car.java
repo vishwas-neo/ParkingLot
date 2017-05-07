@@ -1,9 +1,13 @@
 package com.parkinglot.entities;
-
-public class Car implements Vehicle {
+/*
+ * Immutable class of Type Car.
+ * regNumber: Registration Number of a car.
+ * color: Color of car.
+ */
+public final class Car implements Vehicle {
 
 	private String regNumber;
-	public String color;
+	private String color;
 
 	public Car(String regNumber, String color) {
 		super();

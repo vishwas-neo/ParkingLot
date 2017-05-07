@@ -1,6 +1,11 @@
 package com.parkinglot.entities;
-
-public class Ticket {
+/*
+ * 
+ * Immutable class of Type Ticket.
+ * slotNo: Slot Number assigned to a car.
+ * vehicle: Object of Vehicle for which this ticket will be generated.
+ */
+public final class Ticket {
 
 	private Integer slotNo;
 	private Vehicle vehicle;

@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
+/*
+ * Entry point for jar.
+ */
 public class Main {
 
 	private static boolean isInteractive;
@@ -41,7 +43,6 @@ public class Main {
 			try {
 				return bReader.readLine();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				return null;
 			}
 		}
@@ -54,12 +55,15 @@ public class Main {
 			try {
 				bReader.close();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
-
+/*
+ * It initializes the 
+ * BufferedReader if input is taken from a file.
+ * Scanner object if input is taken from command line. Interactive way.
+ */
 	public static boolean init(String[] args) {
 		if (args.length > 0) {
 			String inputFile = args[0];
