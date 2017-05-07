@@ -92,7 +92,7 @@ public class MainDriver {
 	 *         false when: instructionArray[0] is not one of those defined in
 	 *         Instruction enum. <br>
 	 *         Create is not the first instruction. <br>
-	 *         Two arguments are not provided or park instruction. <br>
+	 *         Two arguments are not provided for park instruction. <br>
 	 *         More than 0 arguments are provided for status. <br>
 	 *         1 arguments is not provided for rest of the instructions.
 	 * 
