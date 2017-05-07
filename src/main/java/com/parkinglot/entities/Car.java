@@ -1,8 +1,12 @@
 package com.parkinglot.entities;
-/*
- * Immutable class of Type Car.
- * regNumber: Registration Number of a car.
- * color: Color of car.
+
+/**
+ * Implementation of Interface Vehicle. Immutable class of Type Car. <br>
+ * regNumber: Registration Number of the car. <br>
+ * Color: Color of car.
+ * 
+ * @author vishwas
+ *
  */
 public final class Car implements Vehicle {
 
