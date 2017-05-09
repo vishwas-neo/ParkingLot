@@ -12,6 +12,8 @@ import com.parkinglot.entities.Vehicle;
  * This class is responsible for generating tickets, searching tickets by color
  * and registration numbers
  * 
+ * More functionality can be added here
+ * 
  * @author vishwas
  *
  */
